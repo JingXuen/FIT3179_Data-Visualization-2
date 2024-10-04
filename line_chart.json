@@ -1,0 +1,175 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 1000,
+    "height": 600,
+    "title": "Pollutants Emission in Malaysia",
+    "data": {
+        "url": "https://raw.githubusercontent.com/JingXuen/FIT3179_Week10_Homework/refs/heads/main/data/pollutants_1922_2022.csv"
+    },
+    "params": [
+        {
+            "name": "pollutants_selection",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "Nitrogen oxide (NOx)",
+                    "Sulphur dioxide (SO₂) emissions",
+                    "Carbon monoxide (CO) emissions",
+                    "Black carbon (BC) emissions",
+                    "Ammonia (NH₃) emissions",
+                    "Non-methane volatile organic compounds (NMVOC) emissions"
+                ],
+                "name": "Pollutants Selection: "
+            },
+            "value": "Nitrogen oxide (NOx)"
+        }
+    ],
+    "transform": [
+        {
+            "filter": "datum.Entity == 'Malaysia'"
+        },
+        {
+            "calculate": "datum[pollutants_selection]",
+            "as": "Selected_Pollutant"
+        },
+        {
+            "window": [
+                {
+                    "op": "max",
+                    "field": "Selected_Pollutant",
+                    "as": "Max_Emission"
+                },
+                {
+                    "op": "min",
+                    "field": "Selected_Pollutant",
+                    "as": "Min_Emission"
+                }
+            ],
+            "frame": [
+                null,
+                null
+            ]
+        }
+    ],
+    "layer": [
+        {
+            "mark": "line",
+            "encoding": {
+                "x": {
+                    "field": "Year",
+                    "type": "temporal",
+                    "title": "Year",
+                    "axis": {
+                        "format": "%Y"
+                    }
+                },
+                "y": {
+                    "field": "Selected_Pollutant",
+                    "type": "quantitative",
+                    "title": "Pollutants Emission (tonnes)"
+                },
+                "tooltip": [
+                    {
+                        "field": "Entity",
+                        "type": "nominal"
+                    },
+                    {
+                        "field": "Year",
+                        "type": "temporal",
+                        "format": "%Y"
+                    },
+                    {
+                        "field": "Selected_Pollutant",
+                        "type": "quantitative",
+                        "format": ",",
+                        "title": "Pollutants Emission (tonnes)"
+                    }
+                ]
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "baseline": "middle",
+                "dx": 5,
+                "fontSize": 12,
+                "fontStyle": "italic"
+            },
+            "encoding": {
+                "x": {
+                    "field": "Year",
+                    "type": "temporal"
+                },
+                "y": {
+                    "field": "max",
+                    "type": "quantitative"
+                },
+                "text": {
+                    "field": "annotation_text",
+                    "type": "nominal"
+                },
+                "color": {
+                    "value": "red"
+                },
+                "opacity": {
+                    "condition": {
+                        "test": "datum.Selected_Pollutant == datum.Max_Emission",
+                        "value": 1
+                    },
+                    "value": 0
+                }
+            },
+            "transform": [
+                {
+                    "filter": "datum.Selected_Pollutant == datum.Max_Emission"
+                },
+                {
+                    "calculate": "'Highest: ' + format(datum.Selected_Pollutant, ',')",
+                    "as": "annotation_text"
+                },
+                {
+                    "calculate": "datum.Selected_Pollutant == datum.Max_Emission",
+                    "as": "max"
+                }
+            ]
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "baseline": "middle",
+                "dx": 5,
+                "dy": 10,
+                "fontSize": 12,
+                "fontStyle": "italic"
+            },
+            "encoding": {
+                "x": {
+                    "field": "Year",
+                    "type": "temporal"
+                },
+                "y": {
+                    "field": "Selected_Pollutant",
+                    "type": "quantitative"
+                },
+                "text": {
+                    "field": "annotation_text",
+                    "type": "nominal"
+                },
+                "color": {
+                    "value": "blue"
+                }
+            },
+            "transform": [
+                {
+                    "filter": "datum.Selected_Pollutant == datum.Min_Emission"
+                },
+                {
+                    "calculate": "'Lowest: ' + format(datum.Selected_Pollutant, ',')",
+                    "as": "annotation_text"
+                }
+            ]
+        }
+    ]
+}
