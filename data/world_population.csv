@@ -1,4 +1,4 @@
-Country,Confirmed,Deaths,Recovered,Active,Population,Continent
+Entity,Confirmed,Deaths,Recovered,Active,Population,Continent
 Afghanistan,39703,1473,33064,5166,38928341,Asia
 Albania,15231,416,9406,5409,2877800,Europe
 Algeria,52940,1795,37170,13975,43851043,Africa
