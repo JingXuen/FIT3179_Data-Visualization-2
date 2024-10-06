@@ -1,10 +1,10 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 1000,
+    "width": 800,
     "height": 600,
     "title": "Pollutants Emission in Malaysia",
     "data": {
-        "url": "https://raw.githubusercontent.com/JingXuen/FIT3179_Week10_Homework/refs/heads/main/data/pollutants_1922_2022.csv"
+        "url": "https://raw.githubusercontent.com/JingXuen/FIT3179_Data-Visualization-2/refs/heads/main/data/pollutants_1922_2022.csv"
     },
     "params": [
         {
