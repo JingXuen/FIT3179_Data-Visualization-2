@@ -1,0 +1,101 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 600,
+  "title": "Pollutants Emission by Continent",
+  "data": {
+    "url": "https://raw.githubusercontent.com/JingXuen/FIT3179_Data-Visualization-2/refs/heads/main/data/aggregated_pollutants_by_continent_year.csv"
+  },
+  "params": [
+    {
+      "name": "continent_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          "North America",
+          "South America",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania"
+        ],
+        "labels": [
+          "North America",
+          "South America",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania"
+        ],
+        "name": "Continent Selection: "
+      },
+      "value": "Asia"
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.Continent == continent_selection"
+    },
+    {
+      "fold": [
+        "Nitrogen oxide (NOx)",
+        "Sulphur dioxide (SO₂) emissions",
+        "Carbon monoxide (CO) emissions",
+        "Black carbon (BC) emissions",
+        "Ammonia (NH₃) emissions",
+        "Non-methane volatile organic compounds (NMVOC) emissions"
+      ],
+      "as": ["Pollutant Type", "Pollutant Emission"]
+    },
+    {
+      "calculate": "datum['Pollutant Emission'] / 1000000",
+      "as": "Pollutant Emission (million tonnes)"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {
+        "labelAngle": 45,
+        "labelPadding": 5
+      }
+    },
+    "y": {
+      "aggregate": "sum",
+      "field": "Pollutant Emission (million tonnes)",
+      "type": "quantitative",
+      "title": "Total Pollutant Emission (million tonnes)"
+    },
+    "color": {
+      "field": "Pollutant Type",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Nitrogen oxide (NOx)",
+          "Sulphur dioxide (SO₂) emissions",
+          "Carbon monoxide (CO) emissions",
+          "Black carbon (BC) emissions",
+          "Ammonia (NH₃) emissions",
+          "Non-methane volatile organic compounds (NMVOC) emissions"
+        ],
+        "range": [
+          "#e7ba52",
+          "#c7c7c7",
+          "#aec7e8",
+          "#1f77b4",
+          "#9467bd",
+          "#ff7f0e"
+        ]
+      },
+      "title": "Pollutant Type"
+    },
+    "tooltip": [
+      {"field": "Year", "type": "ordinal", "title": "Year"},
+      {"field": "Pollutant Type", "type": "nominal", "title": "Pollutant Type"},
+      {"field": "Pollutant Emission (million tonnes)", "type": "quantitative", "title": "Pollutant Emission (million tonnes)"}
+    ]
+  },
+  "mark": {"type": "bar"}
+}
