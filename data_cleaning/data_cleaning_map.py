@@ -21,17 +21,17 @@ merged_df['Entity'] = merged_df['Entity'].replace('Equatorial Guinea', 'Eq. Guin
 merged_df['Entity'] = merged_df['Entity'].replace('Western Sahara', 'W. Sahara')
 
 # Calculate Nitrogen oxide (NOx) per population and add new column
-merged_df['Nitrogen oxide (NOx) per population (kg)'] = (merged_df['Nitrogen oxide (NOx)'] / merged_df['Population (historical)']) * 1000
+# merged_df['Nitrogen oxide (NOx) per population (kg)'] = (merged_df['Nitrogen oxide (NOx)'] / merged_df['Population (historical)']) * 1000
 
-# Remove all other pollutant columns
-columns_to_remove = [
-    'Sulphur dioxide (SO₂) emissions', 
-    'Carbon monoxide (CO) emissions', 
-    'Black carbon (BC) emissions', 
-    'Ammonia (NH₃) emissions', 
-    'Non-methane volatile organic compounds (NMVOC) emissions'
-]
-merged_df = merged_df.drop(columns=columns_to_remove)
+# # Remove all other pollutant columns
+# columns_to_remove = [
+#     'Sulphur dioxide (SO₂) emissions', 
+#     'Carbon monoxide (CO) emissions', 
+#     'Black carbon (BC) emissions', 
+#     'Ammonia (NH₃) emissions', 
+#     'Non-methane volatile organic compounds (NMVOC) emissions'
+# ]
+# merged_df = merged_df.drop(columns=columns_to_remove)
 
 # Add 'Entity_Year' column for joining purposes
 merged_df['Entity_Year'] = merged_df['Entity'] + '_' + merged_df['Year'].astype(str)
