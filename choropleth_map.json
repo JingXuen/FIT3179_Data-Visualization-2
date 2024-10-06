@@ -43,7 +43,31 @@
             "2021", "2022"
           ]
         },
-        "value": 2022
+      "value": 2022
+    },
+    {
+      "name": "pollutants_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Nitrogen oxide (NOx)",
+          "Sulphur dioxide (SO₂) emissions",
+          "Carbon monoxide (CO) emissions",
+          "Black carbon (BC) emissions",
+          "Ammonia (NH₃) emissions",
+          "Non-methane volatile organic compounds (NMVOC) emissions"
+        ],
+        "name": "Pollutants Selection: ",
+        "labels": [
+          "Nitrogen oxide (NOx)",
+          "Sulphur dioxide (SO₂)",
+          "Carbon monoxide (CO)",
+          "Black carbon (BC)",
+          "Ammonia (NH₃)",
+          "Non-methane volatile organic compounds (NMVOC)"
+        ]
+      },
+      "value": "Nitrogen oxide (NOx)"
     }
   ],
   "layer": [
