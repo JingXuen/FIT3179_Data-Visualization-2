@@ -39,7 +39,7 @@ merged_df['Entity'] = merged_df['Entity'].replace('Solomon Islands', 'Solomon Is
 merged_df['Entity_Year'] = merged_df['Entity'] + '_' + merged_df['Year'].astype(str)
 
 # Save the cleaned data to a new CSV file
-merged_df.to_csv('pollutants_per_population_1922_2022.csv', index=False)
+merged_df.to_csv('pollutants_emission_1922_2022_choropleth_map.csv', index=False)
 
 # Print the first few rows of the resulting dataframe
 print(merged_df.head())
