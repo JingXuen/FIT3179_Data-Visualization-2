@@ -4,7 +4,7 @@
     "height": 600,
     "title": "Pollutants Emission in Malaysia",
     "data": {
-        "url": "https://raw.githubusercontent.com/JingXuen/FIT3179_Data-Visualization-2/refs/heads/main/data/pollutants_1922_2022.csv"
+        "url": "https://raw.githubusercontent.com/JingXuen/FIT3179_Data-Visualization-2/refs/heads/main/data/pollutants_emission_with_continents_1922_2022.csv"
     },
     "params": [
         {
@@ -50,6 +50,10 @@
         },
         {
             "filter": "pollutants_selection == null || datum.Selected_Pollutant == pollutants_selection"
+        },
+        {
+            "calculate": "datum['Value'] / 1000",
+            "as": "Value (kilo tonnes)"
         }
     ],
     "layer": [
@@ -68,9 +72,9 @@
                     }
                 },
                 "y": {
-                    "field": "Value",
+                    "field": "Value (kilo tonnes)",
                     "type": "quantitative",
-                    "title": "Pollutants Emission (tonnes)"
+                    "title": "Pollutants Emission (kilo tonnes)"
                 },
                 "color": {
                     "field": "Selected_Pollutant",
@@ -106,10 +110,10 @@
                         "format": "%Y"
                     },
                     {
-                        "field": "Value",
+                        "field": "Value (kilo tonnes)",
                         "type": "quantitative",
                         "format": ",",
-                        "title": "Pollutants Emission (tonnes)"
+                        "title": "Pollutants Emission (kilo tonnes)"
                     },
                     {
                         "field": "Selected_Pollutant",
