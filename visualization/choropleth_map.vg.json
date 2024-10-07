@@ -104,7 +104,7 @@
           "lookup": "Entity_Year",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/JingXuen/FIT3179_Data-Visualization-2/refs/heads/main/data/pollutants_per_population_1922_2022.csv"
+              "url": "https://raw.githubusercontent.com/JingXuen/FIT3179_Data-Visualization-2/refs/heads/main/data/pollutants_emission_1922_2022_choropleth_map.csv"
             },
             "key": "Entity_Year",
             "fields": ["Nitrogen oxide (NOx)", "Sulphur dioxide (SO₂) emissions", "Carbon monoxide (CO) emissions", "Black carbon (BC) emissions", "Ammonia (NH₃) emissions", "Non-methane volatile organic compounds (NMVOC) emissions", "Population (historical)"]
