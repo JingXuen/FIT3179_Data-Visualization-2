@@ -19,7 +19,7 @@ merged_df['Entity'] = merged_df['Entity'].replace('Central African Republic', 'C
 merged_df['Entity'] = merged_df['Entity'].replace('Côte d\'Ivoire', 'Côte d\'Ivoire')
 merged_df['Entity'] = merged_df['Entity'].replace('Equatorial Guinea', 'Eq. Guinea')
 merged_df['Entity'] = merged_df['Entity'].replace('Western Sahara', 'W. Sahara')
-merged_df['Entity'] = merged_df['Entity'].replace('Falkland Islands', 'Falkland')
+merged_df['Entity'] = merged_df['Entity'].replace('Falkland Islands', 'Falkland Is.')
 
 # Calculate Nitrogen oxide (NOx) per population and add new column
 # merged_df['Nitrogen oxide (NOx) per population (kg)'] = (merged_df['Nitrogen oxide (NOx)'] / merged_df['Population (historical)']) * 1000
