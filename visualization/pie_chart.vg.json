@@ -1,0 +1,49 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 600,
+    "mark": "arc",
+    "title": "Total Pollutants Emission by Continent",
+    "data": {
+        "url": "https://raw.githubusercontent.com/JingXuen/FIT3179_Data-Visualization-2/refs/heads/main/data/total_pollutants_by_continent_year.csv"
+    },
+    "params": [
+        {
+            "name": "year_selection",
+                "bind": {
+                    "input": "range",
+                    "min": 1922,
+                    "max": 2022,
+                    "name": "Year Selection: "
+                },
+            "value": 1922
+        }
+    ],
+    "transform": [
+        {
+            "filter": "datum.Year == year_selection"
+        }
+    ],
+    "encoding": {
+        "theta": {
+            "field": "Total_Pollutants",
+            "type": "quantitative"
+        },
+        "color": {
+            "field": "Continent",
+            "type": "nominal"
+        },
+        "tooltip": [
+            {
+                "field": "Continent",
+                "type": "nominal",
+                "title": "Continent"
+            },
+            {
+                "field": "Total_Pollutants",
+                "type": "quantitative",
+                "title": "Total Emissions"
+            }
+        ]
+    }
+}
