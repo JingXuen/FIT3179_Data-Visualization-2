@@ -22,11 +22,15 @@
     "transform": [
         {
             "filter": "datum.Year == year_selection"
+        },
+        {
+            "calculate": "datum['Total_Pollutants'] / 1000",
+            "as": "Total Pollutants (kilo tonnes)"
         }
     ],
     "encoding": {
         "theta": {
-            "field": "Total_Pollutants",
+            "field": "Total Pollutants (kilo tonnes)",
             "type": "quantitative"
         },
         "color": {
@@ -40,9 +44,9 @@
                 "title": "Continent"
             },
             {
-                "field": "Total_Pollutants",
+                "field": "Total Pollutants (kilo tonnes)",
                 "type": "quantitative",
-                "title": "Total Emissions"
+                "title": "Total Emissions (kilo tonnes)"
             }
         ]
     }
