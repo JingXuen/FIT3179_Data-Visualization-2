@@ -1,7 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Pollutant Emission per Population (kg) by Year",
-  "width": 800,
+  "width": 600,
   "height": 400,
   "projection": {"type": "equalEarth"},
   "data": {
@@ -112,23 +111,23 @@
         },
         {
           "calculate": "datum[pollutants_selection] / datum['Population (historical)'] * 1000", 
-          "as": "Pollutant Emission per population (kg)"
+          "as": "Pollutant Emission per Popul. (kg)"
         }
       ],
       "mark": {"type": "geoshape", "stroke": "white"},
       "encoding": {
         "color": {
-          "field": "Pollutant Emission per population (kg)",
+          "field": "Pollutant Emission per Popul. (kg)",
           "type": "quantitative",
           "scale": {
             "type": "threshold",
-            "domain": [10, 20, 30, 40, 50],
+            "domain": [5, 10, 20, 40, 80],
             "range": ["#fef0d9", "#fdd49e", "#fdbb84", "#fc8d59", "#e34a33", "#b30000"]
           }
         },
         "tooltip": [
           {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-          {"field": "Pollutant Emission per population (kg)", "type": "quantitative"}
+          {"field": "Pollutant Emission per Popul. (kg)", "type": "quantitative"}
         ]
       }
     }
