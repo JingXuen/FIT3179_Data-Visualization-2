@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 500,
-    "height": 500,
+    "width": 400,
+    "height": 400,
     "title": "Total Pollutants Emission by Continent",
     "data": {
         "url": "https://raw.githubusercontent.com/JingXuen/FIT3179_Data-Visualization-2/refs/heads/main/data/total_pollutants_by_continent_year.csv"
