@@ -1,0 +1,171 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 600,
+    "title": "Pollutants Emission in Malaysia",
+    "data": {
+        "url": "https://raw.githubusercontent.com/JingXuen/FIT3179_Data-Visualization-2/refs/heads/main/data/pollutants_emission_with_continents_1922_2022.csv"
+    },
+    "transform": [
+        {
+            "filter": "datum.Entity == 'Malaysia'"
+        },
+        {
+            "fold": [
+                "Nitrogen oxide (NOx)",
+                "Sulphur dioxide (SO₂) emissions",
+                "Carbon monoxide (CO) emissions",
+                "Black carbon (BC) emissions",
+                "Ammonia (NH₃) emissions",
+                "Non-methane volatile organic compounds (NMVOC) emissions"
+            ],
+            "as": [
+                "Selected_Pollutant",
+                "Value"
+            ]
+        },
+        {
+            "calculate": "datum['Value'] / 1000",
+            "as": "Value (kilo tonnes)"
+        }
+    ],
+    "params": [
+        {
+            "name": "highlight_opacity",
+            "select": {
+                "type": "point",
+                "fields": [
+                   ["Value (kilo tonnes)"]
+                ]
+            },
+            "bind": "legend"
+        }
+    ],
+    "encoding": {
+        "x": {
+            "field": "Year",
+            "type": "temporal",
+            "title": "Year",
+            "axis": {
+                "format": "%Y"
+            }
+        },
+        "y": {
+            "field": "Value (kilo tonnes)",
+            "type": "quantitative",
+            "title": "Pollutants Emission (kilo tonnes)"
+        },
+        "color": {
+            "field": "Selected_Pollutant",
+            "type": "nominal",
+            "scale": {
+                "domain": [
+                    "Nitrogen oxide (NOx)",
+                    "Sulphur dioxide (SO₂) emissions",
+                    "Carbon monoxide (CO) emissions",
+                    "Black carbon (BC) emissions",
+                    "Ammonia (NH₃) emissions",
+                    "Non-methane volatile organic compounds (NMVOC) emissions"
+                ],
+                "range": [
+                    "#1f77b4",
+                    "#ff7f0e",
+                    "#2ca02c",
+                    "#d62728",
+                    "#9467bd",
+                    "#8c564b"
+                ]
+            },
+            "title": "Pollutant Type",
+            "condition": {
+                "param": "highlight_color",
+                "value": null
+            }
+        },
+        "opacity": {
+            "condition": {
+                "param": "highlight_opacity",
+                "value": 1
+            },
+            "value": 0.1
+        },
+        "tooltip": [
+            {
+                "field": "Entity",
+                "type": "nominal"
+            },
+            {
+                "field": "Year",
+                "type": "temporal",
+                "format": "%Y"
+            },
+            {
+                "field": "Value (kilo tonnes)",
+                "type": "quantitative",
+                "format": ",",
+                "title": "Pollutants Emission (kilo tonnes)"
+            },
+            {
+                "field": "Selected_Pollutant",
+                "type": "nominal",
+                "title": "Pollutant Type"
+            }
+        ]
+    },
+    "layer": [
+        {
+            "mark": "line"
+        },
+        {
+            "params": [
+                {
+                    "name": "hover",
+                    "select": {
+                        "type": "point",
+                        "on": "pointerover",
+                        "clear": "pointerout",
+                        "name": "hover_signal"
+                    }
+                }
+            ],
+            "mark": {
+                "type": "circle",
+                "tooltip": true
+            },
+            "encoding": {
+                "x": {
+                    "field": "Year",
+                    "type": "temporal"
+                },
+                "y": {
+                    "field": "Value (kilo tonnes)",
+                    "type": "quantitative"
+                },
+                "opacity": {
+                    "condition": {
+                        "test": {
+                            "param": "hover",
+                            "empty": false
+                        },
+                        "value": 1
+                    },
+                    "value": 0
+                },
+                "size": {
+                    "condition": {
+                        "test": {
+                            "param": "hover",
+                            "empty": false
+                        },
+                        "value": 48
+                    },
+                    "value": 100
+                },
+                "color": {
+                    "field": "Selected_Pollutant",
+                    "type": "nominal"
+                }
+            }
+        }
+    ]
+}
