@@ -1,0 +1,105 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 600,
+  "mark": "rect",
+  "title": "Pollutants Emission per Population",
+  "data": {
+    "url": "https://raw.githubusercontent.com/JingXuen/FIT3179_Data-Visualization-2/refs/heads/main/data/pollutants_emission_with_continents_1922_2022.csv"
+  },
+  "params": [
+    {
+      "name": "pollutants_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Nitrogen oxide (NOx)",
+          "Sulphur dioxide (SO₂) emissions",
+          "Carbon monoxide (CO) emissions",
+          "Black carbon (BC) emissions",
+          "Ammonia (NH₃) emissions",
+          "Non-methane volatile organic compounds (NMVOC) emissions"
+        ],
+        "labels": [
+          "Nitrogen oxide (NOx)",
+          "Sulphur dioxide (SO₂)",
+          "Carbon monoxide (CO)",
+          "Black carbon (BC)",
+          "Ammonia (NH₃)",
+          "Non-methane volatile organic compounds (NMVOC)"
+        ],
+        "name": "Pollutant Selection: "
+      },
+      "value": "Nitrogen oxide (NOx)"
+    },
+    {
+      "name": "continent_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          "North America",
+          "South America",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania"
+        ],
+        "labels": [
+          "North America",
+          "South America",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania"
+        ],
+        "name": "Continent Selection: "
+      },
+      "value": "Asia"
+    }
+  ],
+  "transform": [
+    {
+      "calculate": "datum[pollutants_selection]",
+      "as": "Pollutant Emission (tonnes)"
+    },
+    {
+      "filter": "datum.Continent == continent_selection"
+    },
+    {
+      "bin": true,
+      "field": "Pollutant Emission (tonnes)",
+      "as": "binned_pollutant_emission"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "quantitative",
+      "bin": {"maxbins": 80},
+      "axis": {
+        "grid": true,
+        "gridOpacity": 0.5
+      }
+    },
+    "y": {
+      "field": "Entity",
+      "type": "nominal",
+      "axis": {
+        "grid": true,
+        "gridOpacity": 0.5
+      }
+    },
+    "color": {
+      "field": "binned_pollutant_emission",
+      "type": "ordinal",
+      "scale": {
+        "scheme": "blues"
+      }
+    },
+    "tooltip": [
+      {"field": "Year", "type": "ordinal", "title": "Year"},
+      {"field": "Entity", "type": "nominal", "title": "Country"},
+      {"field": "Pollutant Emission (tonnes)", "type": "quantitative", "title": "Pollutant Emission (tonnes)"}
+    ]
+  }
+}
