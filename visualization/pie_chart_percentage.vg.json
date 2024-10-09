@@ -37,7 +37,25 @@
                 },
                 "color": {
                     "field": "Continent",
-                    "type": "nominal"
+                    "type": "nominal",
+                    "scale": {
+                        "domain": [
+                            "Africa",
+                            "Asia",
+                            "Europe",
+                            "North America",
+                            "Oceania",
+                            "South America"
+                        ],
+                        "range": [
+                            "#e74c3c",
+                            "#9b59b6",
+                            "#2980b9",
+                            "#e67e22",
+                            "#ba4a00",
+                            "#aab7b8 "
+                        ]
+                    }
                 }
             },
             "mark": {

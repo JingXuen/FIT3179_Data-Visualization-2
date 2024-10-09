@@ -92,23 +92,23 @@
       "type": "nominal",
       "scale": {
         "domain": [
-          "Nitrogen oxide (NOx)",
-          "Sulphur dioxide (SO₂) emissions",
-          "Carbon monoxide (CO) emissions",
-          "Black carbon (BC) emissions",
-          "Ammonia (NH₃) emissions",
-          "Non-methane volatile organic compounds (NMVOC) emissions"
+            "Nitrogen oxide (NOx)",
+            "Sulphur dioxide (SO₂) emissions",
+            "Carbon monoxide (CO) emissions",
+            "Black carbon (BC) emissions",
+            "Ammonia (NH₃) emissions",
+            "Non-methane volatile organic compounds (NMVOC) emissions"
         ],
         "range": [
-          "#1f77b4",
-          "#ff7f0e",
-          "#2ca02c",
-          "#d62728",
-          "#9467bd",
-          "#8c564b"
+            "#1f77b4",
+            "#ff7f0e",
+            "#f1c40f",
+            "#d62728",
+            "#9467bd",
+            "#8c564b"
         ]
       },
-      "title": "Pollutant Type"
+    "title": "Pollutant Type"
     },
     "tooltip": [
       {
