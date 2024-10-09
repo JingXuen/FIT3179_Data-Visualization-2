@@ -13,7 +13,7 @@
                     "input": "range",
                     "min": 1922,
                     "max": 2022,
-                    "name": "Year Selection: "
+                    "name": "Year: "
                 },
             "value": 1922
         }

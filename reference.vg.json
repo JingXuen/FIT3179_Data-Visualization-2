@@ -1,0 +1,370 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url": "data/movies.json"},
+    "transform": [{
+      "filter": {"and": [
+        {"field": "IMDB Rating", "valid": true},
+        {"field": "Rotten Tomatoes Rating", "valid": true}
+      ]}
+    }],
+    "mark": "rect",
+    "width": 300,
+    "height": 200,
+    "encoding": {
+      "x": {
+        "bin": {"maxbins":60},
+        "field": "IMDB Rating",
+        "type": "quantitative"
+      },
+      "y": {
+        "bin": {"maxbins": 40},
+        "field": "Rotten Tomatoes Rating",
+        "type": "quantitative"
+      },
+      "color": {
+        "aggregate": "count",
+        "type": "quantitative"
+      }
+    },
+    "config": {
+      "view": {
+        "stroke": "transparent"
+      }
+    }
+  }
+  
+
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url": "data/seattle-weather.csv"},
+    "mark": "bar",
+    "encoding": {
+        "x": {
+        "timeUnit": "month",
+        "field": "date",
+        "type": "ordinal",
+        "title": "Month of the year"
+        },
+        "y": {
+        "aggregate": "count",
+        "type": "quantitative"
+        },
+        "color": {
+        "field": "weather",
+        "type": "nominal",
+        "scale": {
+            "domain": ["sun", "fog", "drizzle", "rain", "snow"],
+            "range": ["#e7ba52", "#c7c7c7", "#aec7e8", "#1f77b4", "#9467bd"]
+        },
+        "title": "Weather type"
+        }
+    }
+}
+
+
+
+
+
+
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Total Air Pollutant Emissions by Continent",
+  "width": 600,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/JingXuen/FIT3179_Data-Visualization-2/refs/heads/main/data/pollutants_per_population_1922_2022.csv",
+    "format": {"type": "csv"}
+  },
+  "params": [
+    {
+      "name": "year_selection",
+      "bind": {
+        "input": "select",
+        "options": [1922, 1923, 1924, 1925, 1926, 1927, 1928, 1929, 1930, 1931, 1932, 1933, 1934, 1935, 1936, 1937, 1938, 1939, 1940, 1941, 1942, 1943, 1944, 1945, 1946, 1947, 1948, 1949, 1950, 1951, 1952, 1953, 1954, 1955, 1956, 1957, 1958, 1959, 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022],
+        "name": "Year Selection: "
+      },
+      "value": 2022
+    }
+  ],
+  "transform": [
+    {
+      "filter": {
+        "field": "Year",
+        "equal": {"param": "year_selection"}
+      }
+    },
+    {
+      "calculate": "datum['Nitrogen oxide (NOx)'] + datum['Sulphur dioxide (SO₂) emissions'] + datum['Carbon monoxide (CO) emissions'] + datum['Black carbon (BC) emissions'] + datum['Ammonia (NH₃) emissions'] + datum['Non-methane volatile organic compounds (NMVOC) emissions']",
+      "as": "Total_Pollutants"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "Total_Pollutants",
+          "as": "Total_Emissions"
+        }
+      ],
+      "groupby": ["Continent"]
+    }
+  ],
+  "mark": "arc",
+  "encoding": {
+    "theta": {"field": "Total_Emissions", "type": "quantitative"},
+    "color": {"field": "Continent", "type": "nominal"},
+    "tooltip": [
+      {"field": "Continent", "type": "nominal", "title": "Continent"},
+      {"field": "Total_Emissions", "type": "quantitative", "title": "Total Emissions"}
+    ]
+  }
+}
+
+
+
+
+
+
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Total Cancer Deaths per 10,000 Population in 2021 by Continent",
+  "data": {
+    "url": "https://raw.githubusercontent.com/cchu0088/3179_Visualization-2/main/data/continent_death_cancer.csv"
+  },
+  "transform": [
+    {
+      "calculate": "datum['Total deaths from malignant neoplasms among both sexes']/datum.Population * 10000",
+      "as": "Cases per 10,000 Population"
+    },
+    { "filter": "datum.Year == Year_selection" }
+  ],
+  "params": [
+    {
+      "name": "Year_selection",
+      "value": 2021, 
+      "bind": {
+        "input": "range",
+        "min": 2000,
+        "max": 2021,
+        "step": 1,
+        "name": "Year: "
+      }
+    }
+  ],
+  "encoding": {
+    "theta": {"field": "Cases per 10,000 Population", "type": "quantitative", "stack": true},
+    "color": {"field": "Continent", "type": "nominal", "legend": null},
+    "opacity": { "value": 0.8 },
+    "tooltip": [
+      { "field": "Continent", "type": "nominal", "title": "Continent" },
+      { 
+        "field": "Cases per 10,000 Population", 
+        "type": "quantitative", 
+        "title": "Cancer Deaths per 10,000 Population", 
+        "format": ".2f" 
+      },
+      { 
+        "field": "Total deaths from malignant neoplasms among both sexes", 
+        "type": "quantitative", 
+        "title": "Total Cancer Deaths", 
+        "format": "," 
+      },
+      { 
+        "field": "Population", 
+        "type": "quantitative", 
+        "title": "Population", 
+        "format": ","
+      }
+    ]
+  },
+  "layer": [{
+    "mark": {"type": "arc", "outerRadius": 80}
+  }, {
+    "mark": {"type": "text", "radius": 90},
+    "encoding": {
+      "text": {"field": "Continent", "type": "nominal"}
+    }
+  }]
+}
+
+
+
+
+
+
+
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Stock prices of 5 Tech Companies over Time, with a point marker on hover. Note that the hidden markers are intentionally bigger to make it easier for readers to hover.",
+  "data": {
+    "url": "data/stocks.csv"
+  },
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal"
+    },
+    "y": {
+      "field": "price",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "symbol",
+      "type": "nominal"
+    }
+  },
+  "layer": [
+    {
+      "mark": "line"
+    },
+    {
+      "params": [
+        {
+          "name": "hover",
+          "select": {
+            "type": "point",
+            "on": "pointerover",
+            "clear": "pointerout"
+          }
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "tooltip": true
+      },
+      "encoding": {
+        "opacity": {
+          "condition": {
+            "test": {
+              "param": "hover",
+              "empty": false
+            },
+            "value": 1
+          },
+          "value": 0
+        },
+        "size": {
+          "condition": {
+            "test": {
+              "param": "hover",
+              "empty": false
+            },
+            "value": 48
+          },
+          "value": 100
+        }
+      }
+    }
+  ]
+}
+
+
+
+
+
+
+
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A trellis bar chart showing the US population distribution of age groups and gender in 2000.",
+  "data": { "url": "data/population.json"},
+  "transform": [
+    {"filter": "datum.year == 2000"},
+    {"calculate": "datum.sex == 2 ? 'Female' : 'Male'", "as": "gender"}
+  ],
+  "width": {"step": 17},
+  "mark": "bar",
+  "encoding": {
+    "row": {"field": "gender"},
+    "y": {
+      "aggregate": "sum", "field": "people",
+      "title": "population"
+    },
+    "x": {"field": "age"},
+    "color": {
+      "field": "gender",
+      "scale": {"range": ["#675193", "#ca8861"]}
+    }
+  }
+}
+
+
+
+
+
+
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Anscombe's Quartet",
+  "data": {"url": "data/anscombe.json"},
+  "mark": "circle",
+  "encoding": {
+    "column": {"field": "Series"},
+    "x": {
+      "field": "X",
+      "type": "quantitative",
+      "scale": {"zero": false}
+    },
+    "y": {
+      "field": "Y",
+      "type": "quantitative",
+      "scale": {"zero": false}
+    },
+    "opacity": {"value": 1}
+  }
+}
+
+
+
+
+
+
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "repeat": {
+    "row": ["Horsepower", "Acceleration", "Miles_per_Gallon"],
+    "column": ["Miles_per_Gallon", "Acceleration", "Horsepower"]
+  },
+  "spec": {
+    "data": {"url": "data/cars.json"},
+    "mark": "point",
+    "params": [
+      {
+        "name": "brush",
+        "select": {
+          "type": "interval",
+          "resolve": "union",
+          "on": "[pointerdown[event.shiftKey], window:pointerup] > window:pointermove!",
+          "translate": "[pointerdown[event.shiftKey], window:pointerup] > window:pointermove!",
+          "zoom": "wheel![event.shiftKey]"
+        }
+      },
+      {
+        "name": "grid",
+        "select": {
+          "type": "interval",
+          "resolve": "global",
+          "translate": "[pointerdown[!event.shiftKey], window:pointerup] > window:pointermove!",
+          "zoom": "wheel![!event.shiftKey]"
+        },
+        "bind": "scales"
+      }
+    ],
+    "encoding": {
+      "x": {"field": {"repeat": "column"}, "type": "quantitative"},
+      "y": {
+        "field": {"repeat": "row"},
+        "type": "quantitative",
+        "axis": {"minExtent": 30}
+      },
+      "color": {
+        "condition": {
+          "param": "brush",
+          "field": "Origin",
+          "type": "nominal"
+        },
+        "value": "grey"
+      }
+    }
+  }
+}

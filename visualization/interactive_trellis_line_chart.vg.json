@@ -26,7 +26,7 @@
           "Asia",
           "Oceania"
         ],
-        "name": "Continent Selection: "
+        "name": "Continents: "
       },
       "value": "Asia"
     },
@@ -55,7 +55,7 @@
         "Non-methane volatile organic compounds (NMVOC) emissions"
       ],
       "as": [
-        "Selected_Pollutant",
+        "Pollutant Type",
         "Value"
       ]
     },
@@ -71,7 +71,7 @@
   },
   "encoding": {
     "facet": {
-      "field": "Selected_Pollutant",
+      "field": "Pollutant Type",
       "columns": 3
     },
     "x": {
@@ -88,7 +88,7 @@
       "title": "Pollutants Emission (kilo tonnes)"
     },
     "color": {
-      "field": "Selected_Pollutant",
+      "field": "Pollutant Type",
       "type": "nominal",
       "scale": {
         "domain": [
@@ -127,7 +127,7 @@
         "title": "Pollutants Emission (kilo tonnes)"
       },
       {
-        "field": "Selected_Pollutant",
+        "field": "Pollutant Type",
         "type": "nominal",
         "title": "Pollutant Type"
       }
