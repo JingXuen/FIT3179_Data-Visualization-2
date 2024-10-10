@@ -131,6 +131,34 @@
           {"field": "Pollutant Emission per Popul. (kg)", "type": "quantitative"}
         ]
       }
+    },
+    {
+      "transform": [
+        {
+          "lookup": "properties.NAME",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/data/countryInfo.csv"
+            },
+            "key": "name",
+            "fields": ["latitude", "longitude"]
+          }
+        }
+      ],
+      "mark": {"type": "text"},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "text": {"field": "properties.NAME", "type": "nominal"},
+        "size": {"value": 10},
+        "opacity": {
+          "condition": {
+            "test": "datum['properties.NAME'] == 'China' || datum['properties.NAME'] == 'Brazil' || datum['properties.NAME'] == 'Australia' || datum['properties.NAME'] == 'Malaysia' || datum['properties.NAME'] == 'Yemen' || datum['properties.NAME'] == 'United States of America' || datum['properties.NAME'] == 'Russia'",
+            "value": 1
+          },
+          "value": 0
+        }
+      }
     }
   ]
 }
