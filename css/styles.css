@@ -4,7 +4,7 @@ body * {
 
 h1 {
     font-weight: 900;
-    text-align: center;
+    font-family: 'PT Serif', serif;
 }
 
 body {
@@ -18,9 +18,51 @@ body {
     padding-top: 35px;
 }
 
+.section {
+    background-color: #d5dbdb;
+    box-shadow: 8px 8px 12px #99a3a4 ;
+    border-radius: 12px;
+    border: none;
+    transition: box-shadow 0.3s ease-in-out;
+    margin-bottom: 20px;
+    padding: 20px; /* Add padding to the section for content spacing */
+}
+
+.section-intermediate {
+    background-color: rgb(208, 205, 211);
+    color: white;
+    font-weight: bold;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    margin-top: 20px; /* Space above the header */
+    padding: 5px; /* 10px top and bottom, 15px left and right */
+}
+
+.section-header {
+    background-color: #839192;
+    color: white;
+    font-weight: bold;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    text-align: center;
+    margin-top: 10px; /* Space above the header */
+    margin-bottom: 10px; /* Space below the header */
+    padding: 10px; /* Padding for top and bottom spacing within the header */
+}
+
+.section-header h1 {
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */
+    line-height: 1.2; /* Adjust line height */
+    margin-top: 10px; /* Space above the header */
+    margin-bottom: 10px;
+}
+
 .vis-container {
     width: 100%;
+    background-color: #d5dbdb; /* Match this to the section background color */
 }
+
 
 .description h2,
 h1 {
@@ -37,6 +79,10 @@ h1 {
 
 .pure-g {
     margin-bottom: 40px;
+}
+
+.pure-f {
+    margin-bottom: 0;
 }
 
 .small-font {
