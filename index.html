@@ -17,6 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
 
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
@@ -28,132 +29,107 @@
 
   <div class="page">
 
-    <!-- pure grid group -->
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <h1>Air Pollutants Emissions among the World (1922 ~ 2022) </h1>
-        <p style="text-align: justify;">The study of air pollutants emissions worldwide from 1922 to 2022 highlights the significant 
-          impact of industrialization, urbanization, and environmental policies on air quality. Initially, emissions 
-          of pollutants like Nitrogen Oxides (NOx), Sulphur Dioxide (SO₂), Carbon Monoxide (CO), and others increased 
-          due to rapid industrial growth, particularly in developed regions. However, stricter regulations and technological 
-          advancements in the late 20th and early 21st centuries led to reductions in some emissions, especially in 
-          developed countries. Conversely, developing regions have seen rising emissions driven by urbanization and 
-          industrial expansion. This timeline illustrates the progress made in improving air quality and the ongoing 
-          challenges faced in mitigating pollution globally.</p>
+    <div class="section">
+      <div class="section-header">
+        <h1>Air Pollutants Emissions among the World (1922 ~ 2022)</h1>
       </div>
+        <p style="text-align: justify;">
+          From <i>1922</i> to <i>2022</i>, global air pollutant emissions reflect the effects of industrialization, urbanization, 
+          and environmental policies. Initially, pollutants like <b>NOx</b>, <b>SO₂</b>, and <b>CO </b>rose with industrial growth, 
+          particularly in developed countries. However, stricter regulations later reduced emissions, especially in these regions. 
+          Meanwhile, developing areas experienced rising emissions due to urban and industrial expansion. This timeline 
+          shows both progress in air quality and ongoing pollution challenges.
+        </p>
     </div>
-    <!-- end pure grid group -->
 
-    <div>
-      <div class="pure-u-3-5">
-        <div class="description description-right">
-          <h2>Pollutants Emissions per Population by Yaer</h2>
+    <div class="section">
+      <div class="section-header">
+        <h2>Pollutants Emissions per Population by Year</h2>
+      </div>
+      <div class="pure-g">
+        <div class="pure-u-3-5">
+            <div id="vis1" class="vis-container"></div>
+        </div>
+        <div class="pure-u-2-5">
+            <div class="description description-right">
+              <p style="text-align: justify;">
+                <b>Carbon monoxide</b> is the leading air pollutant globally, with <b>high emissions</b> in nearly every country. It mainly 
+                results from vehicle exhaust, industrial activities, and fossil fuel burning. The widespread prevalence shows that <b>carbon 
+                monoxide</b> pollution is a global concern, requiring coordinated efforts to reduce its impact on air quality and public health.
+              </p>
+              <p style="text-align: justify;">
+                <b>Black carbon</b> is one of the <b>least emitted</b> air pollutants globally, with lower emissions across most countries. 
+                Primarily produced by incomplete combustion of biomass and fossil fuels, its localized sources contribute to its 
+                smaller global footprint. Variations in industrial practices and energy use also influence its lower emission levels. 
+                This highlights the need for targeted strategies to address the <b>widespread issue of carbon monoxide</b> while noting the 
+                <b>lesser challenge posed by black carbon emissions</b>.
+              </p>
+            </div>
         </div>
       </div>
     </div>
 
-    <!-- pure grid group -->
-    <div class="pure-g">
-      <div class="pure-u-3-5">
-        <div id="vis1" class="vis-container"></div>
-      </div>
-      <div class="pure-u-2-5">
-        <div class="description description-right">
-          <p style="text-align: justify;">
-            According to the map, carbon monoxide stands out as the predominant air pollutant globally, with nearly every country 
-            exhibiting high emissions levels. This widespread prevalence indicates that carbon monoxide is a significant 
-            environmental concern, largely resulting from various sources such as vehicle exhaust, industrial activities, and the 
-            burning of fossil fuels. The map highlights how the challenges associated with carbon monoxide pollution are not 
-            limited to specific regions, suggesting that concerted global efforts are necessary to mitigate its impact on air 
-            quality and public health.
-          </p>
-          <p style="text-align: justify;">
-            In contrast, black carbon emerges as one of the least emitted air pollutants worldwide, with relatively lower 
-            emissions observed across countries. This pollutant, primarily produced from the incomplete combustion of biomass 
-            and fossil fuels, tends to have more localized sources, contributing to its limited global footprint. The variability 
-            in industrial practices and energy use among countries may also play a role in the lower emission levels of black 
-            carbon. Overall, the map illustrates the complex landscape of air pollutants, underscoring the need for targeted 
-            strategies to address the pervasive issue of carbon monoxide while recognizing the relatively lesser challenge posed 
-            by black carbon emissions.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!-- end pure grid group -->
-
-    <!-- pure grid group -->
-    <div>
-      <div class="pure-u-2-3">
-        <h2>Pollutants Emissions in Different Continents</h2>
-        <div id="vis4" class="vis-container"></div>
-      </div>
-    </div>
-    <!-- end pure grid group -->
-
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <div class="description description-full">
-          <p style="text-align: justify;">
-            This trellis line chart displays the trends in various air pollutant emissions for different continents over time, 
-            using data from 1922 to 2022. It shows the emission levels of six key pollutants: Nitrogen Oxides (NOx), Sulphur 
-            Dioxide (SO₂), Carbon Monoxide (CO), Black Carbon (BC), Ammonia (NH₃), and Non-methane Volatile Organic Compounds (NMVOC), 
-            all measured in kilotonnes. Users can select a continent (e.g., Asia, Europe, North America) to view how the emission 
-            levels of each pollutant have changed over time in that region. This allows for a clear comparison of trends, highlighting 
-            variations in emission patterns across different pollutants and regions.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- pure grid group -->
-    <div class="pure-g">
-      <div class="pure-u-2-5">
-        <div id="vis2" class="vis-container"></div>
-      </div>
-      <div class="pure-u-3-5">
-        <div id="vis3"  class="vis-container"></div>
-      </div>
-    </div>
-    <!-- end pure grid group -->
-
-    <div>
-      <div class="pure-u-1-1">
-        <div class="description description-full">
-          <p style="text-align: justify;">
-            Based on the pie chart and stacked bar chart, we can observe that in the 19th century, the primary contributors to air
-             pollution were emissions from North America and Europe. This trend aligns with the Industrial Revolution, during which
-              these regions experienced rapid industrial growth, leading to increased emissions of pollutants such as nitrogen oxide, 
-              sulfur dioxide, and carbon monoxide. In contrast, in the early 20th century, there was a notable rise in emissions from 
-              Asia, as countries in the region began to industrialize at a significant scale, driving up pollutant emissions. This 
-              shift reflects Asia's growing role in global industrial production and its impact on air quality.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- pure grid group -->
-    <div>
+    <div class="section">
       <div>
-        <h2>Pollutants Emission in Malaysia</h2>
+        <div class="section-header">
+            <div class="pure-u-2-3">
+              <h2>Pollutants Emissions in Different Continents</h2>
+          </div>
+        </div>
         <div id="vis4" class="vis-container"></div>
       </div>
-    </div>
-    <!-- end pure grid group -->
-
-    <div class="pure-g">
-      <div class="pure-u-3-5">
-        <div id="vis5" class="vis-container"></div>
+      <div class="pure-g">
+        <div class="pure-u-1-1">
+          <div class="description description-full">
+            <p style="text-align: justify;">
+              <b>Carbon Monoxide (CO)</b> is the <b>most emitted pollutant globally</b>, with consistently high levels across all 
+              regions, while <b>Black Carbon (BC)</b> shows <b>negligible emissions worldwide</b>. <b>Ammonia (NH₃)</b> emissions 
+              vary significantly by region, with <b>North America</b> having the <b>lowest levels</b> from <i>1922</i> to <i>2022</i>, 
+              compared to higher emissions in <b>Asia</b> and <b>Europe</b>. The chart highlights how industrial activities and 
+              environmental policies have influenced pollutant emissions, showing regional differences in air quality and pollution 
+              control efforts.
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="pure-u-2-5">
-        <div class="description description-right">
-          <p style="text-align: justify;">
-            Around the 1980s, the graph shows a significant increase in air pollutants in Malaysia. This period marks the 
-            start of Malaysia's economic transformation and rapid industrial development, leading to a sharp rise in emissions. 
-            Among the pollutants, carbon monoxide (CO) stands out with a particularly noticeable increase, reflecting the 
-            country's growing industrial activity, energy consumption, and transportation needs. This surge is aligned with 
-            Malaysia's transition into a more manufacturing-based economy, resulting in higher levels of air pollution, especially 
-            from the burning of fossil fuels and industrial processes.
-          </p>
+      <div class="pure-g">
+        <div class="pure-u-2-5">
+          <div id="vis2" class="vis-container"></div>
+        </div>
+        <div class="pure-u-3-5">
+          <div id="vis3"  class="vis-container"></div>
+        </div>
+      </div>
+      <div>
+        <div class="pure-u-1-1">
+          <div class="description description-full">
+            <p style="text-align: justify;">
+              In the <i>19th century</i>, air pollution was primarily driven by <b>emissions from North America and Europe</b> due to the 
+              Industrial Revolution. In the early <i>20th century</i>, <b>Asia saw a significant rise in emissions</b> as industrialization 
+              expanded in the region, reflecting its growing role in global industrial production and its impact on air quality.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <h2>Pollutants Emission in Malaysia</h2>
+      </div>
+      <div class="pure-g">
+        <div class="pure-u-4-5">
+          <div id="vis5" class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-5">
+          <div class="description description-right">
+            <p style="text-align: justify;">
+              In the <i>1980s</i>, Malaysia's rapid industrialization and economic transformation led to a sharp rise in air pollutants, 
+              particularly <b>carbon monoxide (CO)</b>. This increase reflects growing industrial activity, energy consumption, and 
+              transportation needs, driven by the country's shift to a manufacturing-based economy, resulting in higher pollution 
+              from fossil fuels and industrial processes.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -164,7 +140,7 @@
     var specVis1 = "./visualization/choropleth_map.vg.json";
     var specVis2 = "./visualization/pie_chart_percentage.vg.json";
     var specVis3 = "./visualization/stack_bar_chart.vg.json";
-    var specVis4 = "./visualization/interactive_trellis_line_chart.vg.json";
+    var specVis4 = "./visualization/trellis_line_chart.vg.json";
     var specVis5 = "./visualization/line_chart.vg.json";
 
     vegaEmbed('#vis1', specVis1, { "actions": false });
