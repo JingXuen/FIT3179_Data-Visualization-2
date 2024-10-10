@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 625,
+  "background": "#d5dbdb",
+  "width": 600,
   "height": 400,
-  "title": "Pollutants Emission by Continent",
   "data": {
     "url": "https://raw.githubusercontent.com/JingXuen/FIT3179_Data-Visualization-2/refs/heads/main/data/aggregated_pollutants_by_continent_year.csv"
   },
@@ -58,8 +58,9 @@
       "type": "ordinal",
       "title": "Year",
       "axis": {
-        "labelAngle": 90,
-        "labelPadding": 5
+        "labelPadding": 5,
+        "labelOverlap": true,
+        "labelAngle": 0
       }
     },
     "y": {
@@ -73,20 +74,20 @@
       "type": "nominal",
       "scale": {
         "domain": [
-          "Nitrogen oxide (NOx)",
-          "Sulphur dioxide (SO₂) emissions",
-          "Carbon monoxide (CO) emissions",
-          "Black carbon (BC) emissions",
-          "Ammonia (NH₃) emissions",
-          "Non-methane volatile organic compounds (NMVOC) emissions"
+            "Nitrogen oxide (NOx)",
+            "Sulphur dioxide (SO₂) emissions",
+            "Carbon monoxide (CO) emissions",
+            "Black carbon (BC) emissions",
+            "Ammonia (NH₃) emissions",
+            "Non-methane volatile organic compounds (NMVOC) emissions"
         ],
         "range": [
-          "#e7ba52",
-          "#c7c7c7",
-          "#aec7e8",
-          "#1f77b4",
-          "#9467bd",
-          "#ff7f0e"
+            "#1f77b4",
+            "#ff7f0e",
+            "#f1c40f",
+            "#d62728",
+            "#9467bd",
+            "#8c564b"
         ]
       },
       "title": "Pollutant Type"
