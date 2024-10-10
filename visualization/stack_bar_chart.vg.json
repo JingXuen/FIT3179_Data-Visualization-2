@@ -60,34 +60,38 @@
       "axis": {
         "labelPadding": 5,
         "labelOverlap": true,
-        "labelAngle": 0
+        "labelAngle": 0,
+        "gridColor": "#9D9D9D"
       }
     },
     "y": {
       "aggregate": "sum",
       "field": "Pollutant Emission (million tonnes)",
       "type": "quantitative",
-      "title": "Total Pollutant Emission (million tonnes)"
+      "title": "Total Pollutant Emission (million tonnes)",
+      "axis": {
+        "gridColor": "#9D9D9D"
+      }
     },
     "color": {
       "field": "Pollutant Type",
       "type": "nominal",
       "scale": {
         "domain": [
-            "Nitrogen oxide (NOx)",
-            "Sulphur dioxide (SO₂) emissions",
-            "Carbon monoxide (CO) emissions",
-            "Black carbon (BC) emissions",
-            "Ammonia (NH₃) emissions",
-            "Non-methane volatile organic compounds (NMVOC) emissions"
+          "Nitrogen oxide (NOx)",
+          "Sulphur dioxide (SO₂) emissions",
+          "Carbon monoxide (CO) emissions",
+          "Black carbon (BC) emissions",
+          "Ammonia (NH₃) emissions",
+          "Non-methane volatile organic compounds (NMVOC) emissions"
         ],
         "range": [
-            "#1f77b4",
-            "#ff7f0e",
-            "#f1c40f",
-            "#d62728",
-            "#9467bd",
-            "#8c564b"
+          "#1f77b4",
+          "#ff7f0e",
+          "#f1c40f",
+          "#d62728",
+          "#9467bd",
+          "#8c564b"
         ]
       },
       "title": "Pollutant Type"
