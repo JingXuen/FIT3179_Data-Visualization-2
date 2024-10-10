@@ -1,6 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 600,
+    "background": "#d5dbdb",
+    "width": 800,
     "height": 400,
     "data": {
         "url": "https://raw.githubusercontent.com/JingXuen/FIT3179_Data-Visualization-2/refs/heads/main/data/pollutants_emission_with_continents_1922_2022.csv"
@@ -67,13 +68,17 @@
                     "type": "temporal",
                     "title": "Year",
                     "axis": {
-                        "format": "%Y"
+                        "format": "%Y",
+                        "gridColor": "#9D9D9D"
                     }
                 },
                 "y": {
                     "field": "Value (kilo tonnes)",
                     "type": "quantitative",
-                    "title": "Pollutants Emission (kilo tonnes)"
+                    "title": "Pollutants Emission (kilo tonnes)",
+                    "axis": {
+                        "gridColor": "#9D9D9D"
+                    }
                 },
                 "color": {
                     "field": "Selected_Pollutant",
