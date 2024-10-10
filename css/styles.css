@@ -63,6 +63,13 @@ body {
     background-color: #d5dbdb; /* Match this to the section background color */
 }
 
+.vega-bind select {
+    background-color: #ccd1d1; /* Change to your desired background color */
+    color: #000; /* Change text color if needed */
+    border: 1px solid #ccd1d1; /* Optional: Add a border */
+    padding: 5px; /* Optional: Add some padding */
+    border-radius: 4px; /* Optional: Add rounded corners */
+}
 
 .description h2,
 h1 {
