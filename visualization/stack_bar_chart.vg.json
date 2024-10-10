@@ -97,9 +97,22 @@
       "title": "Pollutant Type"
     },
     "tooltip": [
-      {"field": "Year", "type": "ordinal", "title": "Year"},
-      {"field": "Pollutant Type", "type": "nominal", "title": "Pollutant Type"},
-      {"field": "Pollutant Emission (million tonnes)", "type": "quantitative", "title": "Pollutant Emission (million tonnes)"}
+      {
+        "field": "Year", 
+        "type": "ordinal", 
+        "title": "Year"
+      },
+      {
+        "field": "Pollutant Type", 
+        "type": "nominal", 
+        "title": "Pollutant Type"
+      },
+      {
+        "field": "Pollutant Emission (million tonnes)", 
+        "type": "quantitative", 
+        "title": "Pollutant Emission (million tonnes)",
+        "format": ",.2f"
+      }
     ]
   },
   "mark": {"type": "bar"}

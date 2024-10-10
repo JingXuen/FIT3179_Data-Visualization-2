@@ -49,6 +49,10 @@
         "Pollutant Type",
         "Value"
       ]
+    },
+    {
+      "calculate": "datum['Value'] / 1000000",
+      "as": "Pollutant Emission (million tonnes)"
     }
   ],
   "mark": {
@@ -69,9 +73,9 @@
       }
     },
     "y": {
-      "field": "Value",
+      "field": "Pollutant Emission (million tonnes)",
       "type": "quantitative",
-      "title": "Pollutants Emission (kilo tonnes)",
+      "title": "Pollutant Emission (million tonnes)",
       "axis": {
         "gridColor": "#9D9D9D"
       }
@@ -110,10 +114,10 @@
         "format": "%Y"
       },
       {
-        "field": "Value",
+        "field": "Pollutant Emission (million tonnes)",
         "type": "quantitative",
-        "format": ",",
-        "title": "Pollutants Emission (kilo tonnes)"
+        "format": ".2f",
+        "title": "Pollutant Emission (million tonnes)"
       },
       {
         "field": "Pollutant Type",

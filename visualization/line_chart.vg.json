@@ -116,7 +116,7 @@
                     {
                         "field": "Value (kilo tonnes)",
                         "type": "quantitative",
-                        "format": ",",
+                        "format": ",.2f",
                         "title": "Pollutants Emission (kilo tonnes)"
                     },
                     {
