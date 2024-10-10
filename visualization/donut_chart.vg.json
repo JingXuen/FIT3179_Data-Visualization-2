@@ -4,76 +4,93 @@
     "width": 400,
     "height": 400,
     "mark": {
-        "type": "arc",
-        "innerRadius": 125
+      "type": "arc",
+      "innerRadius": 125
     },
     "data": {
-        "url": "https://raw.githubusercontent.com/JingXuen/FIT3179_Data-Visualization-2/refs/heads/main/data/total_pollutants_by_continent_year.csv"
+      "url": "https://raw.githubusercontent.com/JingXuen/FIT3179_Data-Visualization-2/refs/heads/main/data/total_pollutants_by_continent_year.csv"
     },
     "params": [
-        {
-            "name": "year_selection",
-            "bind": {
-                "input": "range",
-                "min": 1922,
-                "max": 2022,
-                "name": "Year Selection: "
-            },
-            "value": 1922
-        }
+      {
+        "name": "year_selection",
+        "bind": {
+          "input": "range",
+          "min": 1922,
+          "max": 2022,
+          "name": "Year Selection: "
+        },
+        "value": 1922
+      }
     ],
     "transform": [
-        {
-            "filter": "datum.Year == year_selection"
-        },
-        {
-            "calculate": "datum['Total_Pollutants'] / 1000",
-            "as": "Total Pollutants (kilo tonnes)"
-        },
-        {
-            "window": [
-                {
-                    "op": "sum",
-                    "field": "Total Pollutants (kilo tonnes)",
-                    "as": "Total Emissions for Year"
-                }
-            ],
-            "frame": [
-                null,
-                null
-            ]
-        },
-        {
-            "calculate": "(datum['Total Pollutants (kilo tonnes)'] / datum['Total Emissions for Year']) * 100",
-            "as": "Percentage"
-        }
+      {
+        "filter": "datum.Year == year_selection"
+      },
+      {
+        "calculate": "datum['Total_Pollutants'] / 1000",
+        "as": "Total Pollutants (kilo tonnes)"
+      },
+      {
+        "window": [
+          {
+            "op": "sum",
+            "field": "Total Pollutants (kilo tonnes)",
+            "as": "Total Emissions for Year"
+          }
+        ],
+        "frame": [null, null]
+      },
+      {
+        "calculate": "(datum['Total Pollutants (kilo tonnes)'] / datum['Total Emissions for Year']) * 100",
+        "as": "Percentage"
+      }
     ],
     "encoding": {
-        "theta": {
-            "field": "Total Pollutants (kilo tonnes)",
-            "type": "quantitative"
+      "theta": {
+        "field": "Total Pollutants (kilo tonnes)",
+        "type": "quantitative"
+      },
+      "color": {
+        "field": "Continent",
+        "type": "nominal",
+        "scale": {
+          "domain": [
+            "North America",
+            "South America",
+            "Europe",
+            "Africa",
+            "Asia",
+            "Oceania"
+          ],
+          "range": [
+            "#6A3D9A",
+            "#66C2A5",
+            "#FC8D62",
+            "#8DA0CB",
+            "#E78AC3",
+            "#A6D854"
+          ]
         },
-        "color": {
-            "field": "Continent",
-            "type": "nominal"
+        "title": "Continent"
+      },
+      "tooltip": [
+        {
+          "field": "Continent",
+          "type": "nominal",
+          "title": "Continent"
         },
-        "tooltip": [
-            {
-                "field": "Continent",
-                "type": "nominal",
-                "title": "Continent"
-            },
-            {
-                "field": "Total Pollutants (kilo tonnes)",
-                "type": "quantitative",
-                "title": "Total Emissions (kilo tonnes)"
-            },
-            {
-              "field": "Percentage",
-              "type": "quantitative",
-              "format": ".2f",
-              "title": "Percentage (%)"
-            }
-        ]
+        {
+          "field": "Total Pollutants (kilo tonnes)",
+          "type": "quantitative",
+          "title": "Total Emissions (kilo tonnes)"
+        },
+        {
+          "field": "Percentage",
+          "type": "quantitative",
+          "format": ".2f",
+          "title": "Percentage (%)"
+        }
+      ]
     }
-}
+  }
+  
