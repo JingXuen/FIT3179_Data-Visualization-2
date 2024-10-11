@@ -18,24 +18,18 @@ body {
     padding-top: 35px;
 }
 
+.section:hover {
+    box-shadow: 8px 8px 12px #839192;
+}
+
 .section {
     background-color: #d5dbdb;
-    box-shadow: 8px 8px 12px #99a3a4 ;
+    box-shadow: 8px 8px 12px #c1c6c6  ;
     border-radius: 12px;
     border: none;
     transition: box-shadow 0.3s ease-in-out;
     margin-bottom: 20px;
     padding: 20px; /* Add padding to the section for content spacing */
-}
-
-.section-intermediate {
-    background-color: rgb(208, 205, 211);
-    color: white;
-    font-weight: bold;
-    border-radius: 12px;
-    font-size: 1.25rem;
-    margin-top: 20px; /* Space above the header */
-    padding: 5px; /* 10px top and bottom, 15px left and right */
 }
 
 .section-header {
