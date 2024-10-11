@@ -57,6 +57,11 @@ body {
     background-color: #d5dbdb; /* Match this to the section background color */
 }
 
+img {
+    display: block;              /* Ensure the image behaves as a block element */
+    margin: auto;                /* Center the image horizontally */
+}
+
 .vega-bind select {
     background-color: #ccd1d1; /* Change to your desired background color */
     color: #000; /* Change text color if needed */
